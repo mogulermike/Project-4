@@ -5,9 +5,5 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     isActive: DataTypes.BOOLEAN
   }, {});
-  User.associate = function(models) {
-    User.belongsTo(models.City, { foreignKey: 'currentCity' })
-    User.hasMany(models.Post, { foreignKey: 'userId' })
-  };
   return User;
 };

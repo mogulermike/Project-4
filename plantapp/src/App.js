@@ -24,7 +24,10 @@ class App extends Component {
 
   handleRegister = async (e, registerData) => {
     e.preventDefault();
+    console.log("registerData is")
+    console.log(registerData)
     const currentUser = await registerUser(registerData);
+    console.log(currentUser)
     this.setState({ currentUser });
   }
 
@@ -56,7 +59,7 @@ class App extends Component {
             <Link to="/login"><button>Login/Register</button></Link>
           }
         </nav>
-        
+
         <Route path="/login" render={() => (
           <LoginForm handleLogin={this.handleLogin} />
         )} />

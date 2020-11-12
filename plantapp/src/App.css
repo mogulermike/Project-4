@@ -31,3 +31,11 @@ nav .active {
   color: rgb(45, 45, 45);
   border: 2px solid rgb(28, 28, 28);
 }
+
+body {
+  background-image: url("./images/green.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}

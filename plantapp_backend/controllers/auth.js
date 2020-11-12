@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const signup = (req, res) => {
+    console.log(req.body)
     bcrypt.genSalt(10, (err, salt) => {
         if(err){
             res.status(constants.INTERNAL_SERVER_ERROR).send(`ERROR: ${err}`);
