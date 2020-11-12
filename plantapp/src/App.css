@@ -25,3 +25,9 @@
   display: flex;
   flex-direction: row;
 }
+
+nav .active {
+  background-color: rgb(242, 214, 0);
+  color: rgb(45, 45, 45);
+  border: 2px solid rgb(28, 28, 28);
+}

@@ -18,7 +18,7 @@ const Header = () => {
             {/* <LogoImg src="./images/logo2.png" alt="logo"/> */}
             <nav>
                 <NavLink to='/home' activeClassName="active">Home</NavLink>
-                <NavLink to='/login' activeClassName="active">Login</NavLink>
+                <NavLink to='/login' activeClassName="active">Login/Register</NavLink>
                 <NavLink to='/newTrip' activeClassName="active">Search</NavLink>
             </nav>
         </div>

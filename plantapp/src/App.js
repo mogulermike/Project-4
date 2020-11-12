@@ -1,25 +1,81 @@
 import './App.css';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
-import BeginnerPlants from './components/BeginnerPlants';
+import Plants from './components/Plants';
 
-import { Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Link, withRouter } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
+import RegisterForm from './components/RegisterForm';
+import LoginForm from './components/LoginForm';
 
-      <Route exact path={["/home","/"]} >
-          <HomePage />
-      </Route>
 
-      <Route path="/BeginnerPlants" >
-        <BeginnerPlants />
-      </Route>
+import { registerUser, loginUser, verifyUser } from './services/api_helper';
 
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentUser: null,
+      cities: null
+    }
+  }
+
+  handleRegister = async (e, registerData) => {
+    e.preventDefault();
+    const currentUser = await registerUser(registerData);
+    this.setState({ currentUser });
+  }
+
+  handleLogin = async (e, loginData) => {
+    e.preventDefault();
+    const currentUser = await loginUser(loginData);
+    this.setState({ currentUser });
+  }
+
+  handleVerify = async () => {
+    const currentUser = await verifyUser();
+    if (currentUser) {
+      this.setState({ currentUser });
+    }
+  }
+
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <nav>
+          {this.state.currentUser ?
+            <div>
+              <p>Hello {this.state.currentUser.username}</p>
+              {/* <button onClick={this.handleLogout}>Logout</button> */}
+            </div>
+          :
+            <Link to="/login"><button>Login/Register</button></Link>
+          }
+        </nav>
+        
+        <Route path="/login" render={() => (
+          <LoginForm handleLogin={this.handleLogin} />
+        )} />
+
+        <Route path="/register" render={() => (
+          <RegisterForm handleRegister={this.handleRegister} />
+        )} />
+
+        <Route exact path={["/home","/"]} >
+            <HomePage />
+        </Route>
+
+        <Route path="/BeginnerPlants" >
+          <Plants />
+        </Route>
+
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);
