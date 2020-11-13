@@ -1,8 +1,11 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "https://hidden-garden-41243.herokuapp.com/" // "https://heroku.app.blah.com"
+    baseURL: "http://localhost:3002"
 })
+//baseURL: "https://hidden-garden-41243.herokuapp.com/"
+//baseURL: "http://localhost:3002" 
+
 
 // ============ AUTH =============
 // goes to http://localhost:3000/auth/signup

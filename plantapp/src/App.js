@@ -8,6 +8,7 @@ import { Route, Link, withRouter } from 'react-router-dom';
 
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+import Profile from './components/Profile';
 
 
 import { registerUser, loginUser, verifyUser } from './services/api_helper';
@@ -18,7 +19,6 @@ class App extends Component {
 
     this.state = {
       currentUser: null,
-      cities: null
     }
   }
 
@@ -29,12 +29,14 @@ class App extends Component {
     const currentUser = await registerUser(registerData);
     console.log(currentUser)
     this.setState({ currentUser });
+    this.props.history.push('/profile');
   }
 
   handleLogin = async (e, loginData) => {
     e.preventDefault();
     const currentUser = await loginUser(loginData);
     this.setState({ currentUser });
+    this.props.history.push('/profile');
   }
 
   handleVerify = async () => {
@@ -44,21 +46,34 @@ class App extends Component {
     }
   }
 
+  handleLogout = async (e, currentUser) => {
+    localStorage.removeItem('authToken');
+    currentUser = this.state.currentUser;
+    this.setState({ currentUser: null });
+  }
+
+  componentDidMount() {
+    this.handleVerify();
+  }
+
 
   render() {
     return (
       <div className="App">
-        <Header />
-        <nav>
+        <Header 
+          currentUser = {this.state.currentUser}
+          handleLogout={this.handleLogout}
+        />
+        {/* <nav>
           {this.state.currentUser ?
             <div>
               <p>Hello {this.state.currentUser.username}</p>
-              {/* <button onClick={this.handleLogout}>Logout</button> */}
+              <button onClick={this.handleLogout}>Logout</button>
             </div>
           :
             <Link to="/login"><button>Login/Register</button></Link>
           }
-        </nav>
+        </nav> */}
 
         <Route path="/login" render={() => (
           <LoginForm handleLogin={this.handleLogin} />
@@ -75,6 +90,14 @@ class App extends Component {
         <Route path="/BeginnerPlants" >
           <Plants />
         </Route>
+
+        <Route path="/Profile" >
+          <Profile
+            currentUser = {this.state.currentUser}
+          />
+        </Route>
+
+        
 
       </div>
     );
