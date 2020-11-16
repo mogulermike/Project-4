@@ -1,4 +1,5 @@
-#header nav a {
+/* moved these styles to the styled div.. worked pretty well */
+/* #header nav a {
   text-decoration: none;
   color: white;
   border: 2px solid rgb(130, 130, 130);
@@ -12,19 +13,8 @@
   background-color: rgb(41, 244, 122);
   color: rgb(45, 45, 45);
   border: 2px solid rgb(41, 244, 122);
-}
+} */
 
-.card{
-  height: 100px;
-  width: 100px;
-  border: 2px solid gray;
-
-}
-
-.homeNav {
-  display: flex;
-  flex-direction: row;
-}
 
 nav .active {
   background-color: rgb(41, 244, 122);
@@ -38,4 +28,5 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+  color:white;
 }

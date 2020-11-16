@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import Plants from './components/Plants';
+import BeginnerPlants from './components/BeginnerPlants';
 
 import React, { Component } from 'react';
 import { Route, Link, withRouter } from 'react-router-dom';
@@ -88,12 +89,17 @@ class App extends Component {
         </Route>
 
         <Route path="/BeginnerPlants" >
+          <BeginnerPlants />
+        </Route>
+        
+        <Route path="/Plants" >
           <Plants />
         </Route>
 
         <Route path="/Profile" >
           <Profile
             currentUser = {this.state.currentUser}
+            handleLogout={this.handleLogout}
           />
         </Route>
 
