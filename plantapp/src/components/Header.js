@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderCSS = styled.div`
-background: rgb(63, 63, 63);
+
 display: flex;
 flex-direction: row;
 align-items: center;
