@@ -43,19 +43,19 @@ const Header = (props) => {
                 <div>
                     {/* <LogoImg src="./images/logo2.png" alt="logo"/> */}
                     <nav>
-                        <NavLink to='/home' activeClassName="active">Home</NavLink>
+                        <NavLink to='/home' activeclassname="active">Home</NavLink>
                         
                         {!props.currentUser ?
-                            <NavLink to='/login' activeClassName="active">Login/Register</NavLink>
+                            <NavLink to='/login' activeclassname="active">Login/Register</NavLink>
                             :
                             // <button onClick={(e) => 
                             //     props.handleLogout(e)}>Logout</button>
                             // <NavLink to='/profile' onClick={(e) => 
                             //     props.handleLogout(e)} activeClassName="active">Logout</NavLink>
-                            <NavLink to='/profile' activeClassName="active">Profile</NavLink>
+                            <NavLink to='/profile' activeclassname="active">Profile</NavLink>
                         }
                         
-                        <NavLink to='/plants' activeClassName="active">Plants</NavLink>
+                        <NavLink to='/plants' activeclassname="active">Plants</NavLink>
                     </nav>
                 </div>
             

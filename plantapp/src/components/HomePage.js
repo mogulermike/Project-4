@@ -38,7 +38,7 @@ const HomePage = () => {
 
 
             <div id = "homeNav">
-                <Link to="/BeginnerPage">
+                <Link to="/BeginnerPlants">
                     <div className="card">
                         Beginner Plants Page
                     </div>

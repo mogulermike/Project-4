@@ -11,36 +11,18 @@ justify-content: center;
 margin-top: 40px;
 `
 
-const plantInfo = [
-    {
-        name: 'Pothos',
-        type: 'Trailing',
-        level: "3",
-        img: "./images/jon.png",
-    },
-    {
-        name: 'Umbrella Plant',
-        type: 'Tropical',
-        level: "5",
-        img: "./images/jon.png",
-    },
-    {
-        name: 'Snake Plant',
-        type: 'Hardy',
-        level: "3",
-        img: "./images/jon.png",
 
-    }
-]
-
-export default function Plants() {
+export default function Plants(props) {
     return (
         <WrapperDiv>
-            {plantInfo.map((item, id) => {
-                return <div key={id}>
-                    <PlantItem item={item} />
-                </div>
+            {props.plants && props.plants.map((item, id) => {
+                return <PlantItem 
+                    item={item} 
+                    key={id}
+                />
             })}
+
+
         </WrapperDiv>
     )
 }

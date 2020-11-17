@@ -35,3 +35,8 @@ export const verifyUser = async () => {
   }
   return false;
 }
+
+export const allPlants = async () => {
+  const resp = await api.get('/plant/all');
+  return resp;
+}
