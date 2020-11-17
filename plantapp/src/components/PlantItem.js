@@ -23,8 +23,9 @@ export default function PlantItem(props) {
         <div id = "plantWrapper">
             <Link to={"plantinfo/"+props.item.name}>
                 <WrapperDiv>
-                    <h2>Name: {props.item.name}</h2>
+                    <h2>{props.item.name}</h2>
                     <img src= {props.item.img} alt="img"/>
+                    <button onClick={(e) => props.addPlant(e,props.item)}>Add to Profile</button>
                 </WrapperDiv>
             </Link>
         </div>
