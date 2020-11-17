@@ -14,7 +14,7 @@ import LoginForm from './components/LoginForm';
 import Profile from './components/Profile';
 
 
-import { registerUser, loginUser, verifyUser, allPlants } from './services/api_helper';
+import { registerUser, loginUser, verifyUser, allPlants, addPlant, getUserPlant } from './services/api_helper';
 
 
 class App extends Component {
@@ -29,10 +29,7 @@ class App extends Component {
 
   handleRegister = async (e, registerData) => {
     e.preventDefault();
-    console.log("registerData is")
-    console.log(registerData)
     const currentUser = await registerUser(registerData);
-    console.log(currentUser)
     this.setState({ currentUser });
     this.props.history.push('/profile');
   }
@@ -68,6 +65,15 @@ class App extends Component {
       plants: plants.data
     })
     console.log(plants)
+  }
+
+  addPlant = async(e,plantId) => {
+    const userplants = await addPlant(plantId, this.state.currentUser.id)
+  }
+
+  getUserPlant = async() => {
+    const allplants = await getUserPlant(this.state.currentUser.id)
+    return allplants
   }
 
 
@@ -118,6 +124,7 @@ class App extends Component {
         <Route path="/Plants" >
           <Plants 
             plants = {this.state.plants}
+            addPlant = {this.addPlant}
           />
         </Route>
 
@@ -125,8 +132,10 @@ class App extends Component {
           <Profile
             currentUser = {this.state.currentUser}
             handleLogout={this.handleLogout}
+            getUserPlant= {this.getUserPlant}
           />
         </Route>
+
 
         
 

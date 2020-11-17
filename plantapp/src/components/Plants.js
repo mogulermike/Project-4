@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PlantItem from './PlantItem';
 
+
 const WrapperDiv = styled.div`
 display: flex;
 flex-direction: row;
@@ -19,6 +20,7 @@ export default function Plants(props) {
                 return <PlantItem 
                     item={item} 
                     key={id}
+                    addPlant={props.addPlant}
                 />
             })}
 

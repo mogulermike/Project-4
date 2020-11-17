@@ -40,3 +40,15 @@ export const allPlants = async () => {
   const resp = await api.get('/plant/all');
   return resp;
 }
+
+export const addPlant = async (plantId, userId) => {
+  const resp = await api.get(`/plant/add/${userId}/${plantId.id}`)
+  console.log(resp)
+  return resp;
+}
+
+export const getUserPlant = async (userId) => {
+  const resp = await api.get(`/plant/profile/${userId}`)
+  console.log(resp)
+  return resp;
+}

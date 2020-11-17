@@ -40,10 +40,10 @@ class PlantInfo extends Component {
             <div id = "plantWrapper">
                 {this.state.plant &&
                     <WrapperDiv>
-                        <h2>Name: {this.state.plant.name}</h2>
+                        <h2>{this.state.plant.name}</h2>
                         <img src= {this.state.plant.img} alt="hello"/>
-                        <h2>light: {this.state.plant.light}</h2>
-                        <h4>Details: {this.state.plant.details}</h4>
+                        <h2>Light Requirements: {this.state.plant.light}</h2>
+                        <h4>{this.state.plant.details}</h4>
                     </WrapperDiv>
                 }
             </div>
