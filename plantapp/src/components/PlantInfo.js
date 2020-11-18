@@ -4,16 +4,18 @@ import styled from 'styled-components';
 
 
 const WrapperDiv = styled.div`
+display:flex;
+justify-content:center;
+flex-direction:column;
+align-items:center;
+width:60%;
 padding: 10px;
-margin: 10px;
+margin: 0 auto;
 line-height: 100%;
 border-radius: 18px;
-background: linear-gradient(145deg, #bbbbbb, #111111);
-box-shadow:  5px 5px 10px #999999, 
-             -5px -5px 10px #ffffff;
 
 img {
-    width: 100px;
+    width: 400px;
 }
 `
 class PlantInfo extends Component {
@@ -43,7 +45,7 @@ class PlantInfo extends Component {
                         <h2>{this.state.plant.name}</h2>
                         <img src= {this.state.plant.img} alt="hello"/>
                         <h2>Light Requirements: {this.state.plant.light}</h2>
-                        <h4>{this.state.plant.details}</h4>
+                        <h3>{this.state.plant.details}</h3>
                     </WrapperDiv>
                 }
             </div>

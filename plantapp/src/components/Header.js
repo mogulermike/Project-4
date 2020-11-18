@@ -11,6 +11,7 @@ justify-content: space-between;
 color: white;
 height: 80px;
 margin-right:20px;
+margin-left:30px;
 
 nav a {
     background: rgba(255, 255, 255, 0.2);
@@ -27,6 +28,10 @@ nav a:hover {
     background-color: rgb(0,255,128);
     color: rgb(45, 45, 45);
     border: .5px solid rgb(0,128,0);
+}
+p{
+    text-shadow: 4px 4px 8px #000000;
+    font-size:20px;
 }
 
 
