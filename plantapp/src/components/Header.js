@@ -7,14 +7,16 @@ const HeaderCSS = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
-justify-content: space-around;
+justify-content: space-between;
 color: white;
 height: 80px;
+margin-right:20px;
 
 nav a {
+    background: rgba(255, 255, 255, 0.2);
     text-decoration: none;
     color: white;
-    border: 2px solid rgb(130, 130, 130);
+    border: .5px solid rgb(255, 255, 255);
     padding: 6px;
     border-radius: 4px;
     margin: 10px;
@@ -22,9 +24,9 @@ nav a {
 }
 
 nav a:hover {
-    background-color: rgb(41, 244, 122);
+    background-color: rgb(0,255,128);
     color: rgb(45, 45, 45);
-    border: 2px solid rgb(41, 244, 122);
+    border: .5px solid rgb(0,128,0);
 }
 
 
@@ -43,19 +45,19 @@ const Header = (props) => {
                 <div>
                     {/* <LogoImg src="./images/logo2.png" alt="logo"/> */}
                     <nav>
-                        <NavLink to='/home' activeclassname="active">Home</NavLink>
+                        <NavLink to='/home' activeClassName="active">Home</NavLink>
                         
                         {!props.currentUser ?
-                            <NavLink to='/login' activeclassname="active">Login/Register</NavLink>
+                            <NavLink to='/login' activeClassName="active">Login/Register</NavLink>
                             :
                             // <button onClick={(e) => 
                             //     props.handleLogout(e)}>Logout</button>
                             // <NavLink to='/profile' onClick={(e) => 
                             //     props.handleLogout(e)} activeClassName="active">Logout</NavLink>
-                            <NavLink to='/profile' activeclassname="active">Profile</NavLink>
+                            <NavLink to='/profile' activeClassName="active">Profile</NavLink>
                         }
                         
-                        <NavLink to='/plants' activeclassname="active">Plants</NavLink>
+                        <NavLink to='/plants' activeClassName="active">Plants</NavLink>
                     </nav>
                 </div>
             
