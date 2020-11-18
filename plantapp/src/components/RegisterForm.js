@@ -1,5 +1,52 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+
+const PageCSS = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  input[type=submit]:hover {
+    background-color:white;
+    color: #4CAF50
+    font-size:30px;
+  }
+
+  a{
+    text-decoration:none;
+    text-shadow: 4px 4px 8px #000000;
+    font-size:20px;
+    color:white;
+  }
+  a:hover{
+    color: chartreuse;
+  }
+
+  
+`
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -21,22 +68,31 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <form onSubmit={(e) => this.props.handleRegister(e, this.state)}>
-        <input
-          type="text"
-          name="username"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Register" />
-        <Link to="/login">Login</Link>
-      </form>
+      <PageCSS>
+        <div>
+        <form onSubmit={(e) => this.props.handleLogin(e, this.state)}>
+          <input
+            placeholder = "Username"
+            type="text"
+            name="username"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          <br></br>
+          <input
+            placeholder = "Password"
+            type="password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+          <br></br>
+          <input type="submit" value="Register"/>
+          <br></br>
+          <Link to="/login">Already have an account? Login here!</Link>
+        </form>
+        </div>
+      </PageCSS>
     )
   }
 }

@@ -9,6 +9,41 @@ const PageCSS = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 100px;
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  input[type=submit]:hover {
+    background-color:white;
+    color: #4CAF50
+  }
+
+  a{
+    text-decoration:none;
+    text-shadow: 4px 4px 8px #000000;
+    font-size:20px;
+    color:white;
+  }
+  a:hover{
+    color: chartreuse;
+  }
+
   
 `
 
@@ -55,7 +90,7 @@ class LoginForm extends Component {
           <br></br>
           <input type="submit" value="Login" />
           <br></br>
-          <Link to="/register">Don't have an account? Register</Link>
+          <Link to="/register">Don't have an account? Register!</Link>
         </form>
         </div>
       </PageCSS>
